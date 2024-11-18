@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stream Overlay</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.4.0/dist/confetti.browser.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="portrait-content">
+        <div id="overlay-container">
+
+            <div class="mainOverlay yt-header">
+                <img src="./yt.png">
+            </div>
+
+            <!-- Progress Bars -->
+            <div id="static-bars" class="mainOverlay">
+                <div class="static-item">
+                    <span class="funky-text">Finishes Today</span>
+                    <div class="bar-container">
+                        <div id="finish-bar" class="progress"></div>
+                    </div>
+                    <div id="finish-count" class="funky-text pulse">0 / Finish Goal</div>
+                </div>
+                
+                <div class="static-item">
+                    <span class="funky-text">Subscriber Goal</span>
+                    <div class="bar-container">
+                        <div id="subscriber-bar" class="progress"></div>
+                    </div>
+                    <div id="subscriber-count" class="funky-text pulse">0 / Goal</div>
+                </div>
+            </div> 
+        
+            <div class="mainOverlay yt-logo">
+                <img src="./logo.png">
+            </div>
+
+            <!-- Most Finishes Display -->
+            <div id="most-finish-container" class="mainOverlay">
+                <div class="funky-text">
+                    Today's Most Finishes: <span id="highest-finish-count" class="funky-text pulse">0</span>
+                </div>
+            </div>
+
+            <div id="newStream-section" class="mainOverlay inputs-div">
+                <div class="section-input">
+                    <div>
+                        <label for="in-finish-goal">Finish Goal:</label>
+                        <input type="number" id="in-finish-goal" name="in-finish-goal" value="0">
+                    </div>
+                    <div>
+                        <label for="in-subsciber-goal">Subscriber Goal:</label>
+                        <input type="number" id="in-subsciber-goal" name="in-subsciber-goal" value="0">
+                    </div>
+                    <div>
+                        <label for="in-current-subs">Cuurent Subscribers:</label>
+                        <input type="number" id="in-current-subs" name="in-current-subs" value="0">
+                    </div>
+                </div>
+                <div class="section-button">
+                    <button onclick="createNewStream()">Create</button>
+                </div>
+            </div>
+        
+            <div id="input-section" class="mainOverlay inputs-div">
+                <div class="section-input">
+                    <div>
+                        <label for="current-finish">Current Match Finish:</label>
+                        <input type="number" id="current-finish" name="current-finish"> 
+                    </div>
+                    <div>
+                        <label for="subscriber-change">Change Subs:</label>
+                        <input type="number" id="subscriber-change" name="subscriber-change">
+                    </div>
+                </div>
+                <div class="section-button">
+                    <button onclick="updateProgress()">Update</button>
+                </div>
+            </div>
+
+            <div id="party-section" class="mainOverlay inputs-div">
+                <div class="section-button">
+                    <button id="explodeButton" onclick="milestoneReached(1,1)">Trigger Explosion</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Logo, Gameplay, and Camera Containers
+        <div id="logo-container">LOGO</div>
+        <div id="gameplay-container">GAMEPLAY</div>
+        <div id="camera-container">CAMERA</div> -->
+
+        <!-- Confetti Effect Container -->
+        <canvas id="confetti"></canvas>
+
+        <!-- <button id="fireButton">Fire</button>
+        <div id="particles-js"></div> -->
+
+        <!-- <div id="particles-js"></div>
+        <div id="boomText">BOOOMM</div> -->
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

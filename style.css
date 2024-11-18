@@ -1,0 +1,249 @@
+body {
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+    width: 540px;
+    height: 1280px;  
+}
+
+.portrait-content {
+    overflow-y: auto;
+    margin: 0px auto;
+    width: 100%;
+    height: 100%;
+    background-color: transparent;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    font-family: 'Orbitron', sans-serif;
+    padding-top: 40px;
+    /* background: linear-gradient(135deg, #12141a, #12141a, #12141a, #12141a); */
+    
+    background: linear-gradient(135deg, #FFC107 10%, #12141a 22%, #12141a 50%, #FF8C00 100%);
+    background-size: 200% 200%;
+    animation: gradientAnimation 10s ease infinite;
+}
+
+@keyframes gradientAnimation {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+#overlay-container {
+    background-color: transparent;
+    width: 96%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    position: relative;
+
+    .mainOverlay {
+        display: flex;
+        justify-content: space-around;
+        text-align: center;
+    }
+}
+
+#static-bars {
+    gap: 30px;
+}
+
+.static-item {
+    flex: 1;
+    text-align: center;
+}
+
+.bar-container {
+    background-color: rgba(255, 255, 255, 0.2);
+    height: 12px;
+    border-radius: 10px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 0 15px #ff7f7f, 0 0 25px #ff7f7f, 0 0 50px #ff7f7f;
+}
+
+.progress {
+    height: 30px; /* Make the height of the progress bar noticeable */
+    background: linear-gradient(90deg, #FFD700, #DC143C, #FFD700);
+    background-size: 200% 200%;
+    width: 50%; /* Set the initial width for the progress */
+    animation: shimmer 8s infinite; /* Shimmer effect with duration */
+}
+
+@keyframes shimmer {
+    from { background-position: 200% 0; }
+    to { background-position: -200% 0; } /* Slide the gradient across */
+}
+
+#most-finish-container {
+    font-size: 1.5em;
+    padding: 10px 20px;
+    border: 2px solid #ff4d5a;
+    border-radius: 10px;
+    background-color: rgba(255, 0, 170, 0.1);
+}
+
+/* .funky-text {
+    font-size: 1.5em;
+    animation: flicker 1.5s infinite alternate;
+    color: #ff00aa;
+    text-shadow: 0px 0px 10px #ff00aa, 0px 0px 20px #ff00aa;
+} */
+
+.funky-text {
+    color: #ffb4b4; 
+    font-weight: bold;
+    font-size: 20px;
+    text-transform: uppercase;
+    text-align: center;
+    letter-spacing: 2px;
+    text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.4), 0 0 25px #DC143C, 0 0 5px #ff4d5a;
+
+    &.flicker {
+        animation: flicker 2s infinite;
+    }
+    &.pulse {
+        display: inline-block;
+        animation: pulse 8s infinite, flicker 8s infinite alternate;
+    }
+    
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes wave {
+    0% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(3deg);
+    }
+    50% {
+        transform: rotate(0deg);
+    }
+    75% {
+        transform: rotate(-3deg);
+    }
+    100% {
+        transform: rotate(0deg);
+    }
+}
+
+@keyframes flicker {
+    0% { opacity: 1; text-shadow: 0px 0px 6px #ff4d5a, 0px 0px 10px #ff4d5a; }
+    50% { opacity: 0.9; text-shadow: 0px 0px 15px #DC143C, 0px 0px 25px #DC143C; }
+    100% { opacity: 1; }
+}
+
+.inputs-div {
+    display: flex;
+    margin-top: 50px;
+    justify-content: space-between;
+
+    .section-input {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        gap: 8px;
+
+        div {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            gap: 8px;
+
+            label {
+                display: flex;
+                align-items: center;  
+                justify-content: center; 
+                font-size: 16px;
+                color: #fff;
+                border-radius: 5px;
+            }
+        }
+    }
+
+    .section-button {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;  
+        justify-content: center; 
+        gap: 8px;
+    }
+}
+
+input, button {
+    font-family: 'Orbitron', sans-serif;
+    color: #ff00aa;
+    background-color: #1a1a1d;
+    border: 2px solid #ff00aa;
+    border-radius: 5px;
+    height: 32px;
+    font-size: 20px;
+    width: 100px;
+}
+button {
+    width: 200px;
+}
+
+button:hover {
+    background-color: #ff007f;
+    color: #fff;
+    cursor: pointer;
+}
+
+/* #particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+} */
+
+/* #particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    pointer-events: none;
+} */
+
+/* #boomText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 5em;
+    color: #ff3333;
+    font-weight: bold;
+    opacity: 0;
+    transition: opacity 0.2s ease, transform 0.3s ease-in-out;
+} */
+/* 
+#explodeButton {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+} */
+/* .flash {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255,255,255,1) 0%, rgba(255,255,255,0) 70%);
+    opacity: 0;
+    z-index: 2;
+    transition: opacity 0.1s ease;
+} */
